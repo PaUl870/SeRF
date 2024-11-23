@@ -222,6 +222,7 @@ void ReadDataWrapper(const string &dataset, string &dataset_path,
   } else if (dataset == "local") {
     cout << dataset_path << endl;
     raw_data = ReadTopN(dataset_path, "fvecs", data_size);
+    querys = ReadTopN(query_path, "bvecs", query_size);
   } else if (dataset == "deep") {
     raw_data = ReadTopN(dataset_path, "fvecs", data_size);
     querys = ReadTopN(query_path, "fvecs", query_size);

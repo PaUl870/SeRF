@@ -106,18 +106,18 @@ int main(int argc, char **argv) {
 
   assert(index_k_list.size() != 0);
   assert(ef_construction_list.size() != 0);
-  // assert(groundtruth_path != "");
+  assert(groundtruth_path != "");
 
   DataWrapper data_wrapper(query_num, query_k, dataset, data_size);
   data_wrapper.readData(dataset_path, query_path);
 
-  // Generate groundtruth
-  if (full_range)
-    data_wrapper.generateRangeFilteringQueriesAndGroundtruth(false);
-  else
-    data_wrapper.generateRangeFilteringQueriesAndGroundtruthBenchmark(false);
+  // // Generate groundtruth
+  // if (full_range)
+  //   data_wrapper.generateRangeFilteringQueriesAndGroundtruth(false);
+  // else
+  //   data_wrapper.generateRangeFilteringQueriesAndGroundtruthBenchmark(false);
   // Or you can load groundtruth from the given path
-  // data_wrapper.LoadGroundtruth(groundtruth_path);
+  data_wrapper.LoadGroundtruth(groundtruth_path);
 
   assert(data_wrapper.query_ids.size() == data_wrapper.query_ranges.size());
 
