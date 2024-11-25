@@ -78,6 +78,7 @@ std::vector<float> ItrReader::Next() { return m_reader->Next(); }
 
 std::vector<std::vector<float>> ReadTopN(std::string filename, std::string ext,
                                          int top_n) {
+
   std::vector<std::vector<float>> vecs;
   if (top_n != -1) {
     vecs.reserve(top_n);
@@ -222,7 +223,7 @@ void ReadDataWrapper(const string &dataset, string &dataset_path,
   } else if (dataset == "local") {
     cout << dataset_path << endl;
     raw_data = ReadTopN(dataset_path, "fvecs", data_size);
-    querys = ReadTopN(query_path, "bvecs", query_size);
+    querys = ReadTopN(query_path, "fvecs", query_size);
   } else if (dataset == "deep") {
     raw_data = ReadTopN(dataset_path, "fvecs", data_size);
     querys = ReadTopN(query_path, "fvecs", query_size);
