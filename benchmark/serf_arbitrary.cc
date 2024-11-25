@@ -65,14 +65,14 @@ int main(int argc, char **argv) {
 
   // Parameters
   string dataset = "deep";
-  int data_size = 100000;
+  int data_size = 10000;
   string dataset_path = "";
   string method = "";
   string query_path = "";
   string groundtruth_path = "";
   vector<int> index_k_list = {8};
   vector<int> ef_construction_list = {100};
-  int query_num = 1000;
+  int query_num = 100;
   int query_k = 10;
   vector<int> ef_max_list = {500};
   vector<int> searchef_para_range_list = {16, 64, 256};
@@ -88,6 +88,8 @@ int main(int argc, char **argv) {
     string arg = argv[i];
     if (arg == "-dataset") dataset = string(argv[i + 1]);
     if (arg == "-N") data_size = atoi(argv[i + 1]);
+    if (arg == "-qN") query_num = atoi(argv[i + 1]);
+    if (arg == "-qk") query_k = atoi(argv[i + 1]);
     if (arg == "-dataset_path") dataset_path = string(argv[i + 1]);
     if (arg == "-query_path") query_path = string(argv[i + 1]);
     if (arg == "-groundtruth_path") groundtruth_path = string(argv[i + 1]);
@@ -98,6 +100,7 @@ int main(int argc, char **argv) {
     if (arg == "-method") method = string(argv[i + 1]);
     if (arg == "-full_range") full_range = true;
   }
+
 
   index_k_list = str2vec(indexk_str);
   ef_construction_list = str2vec(ef_con_str);
